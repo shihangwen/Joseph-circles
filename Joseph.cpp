@@ -3,13 +3,13 @@
 #include<stdlib.h>
 using namespace std;
 
-struct node{
-  int data;//原有的顺序
+struct node{              //建立节点的特征属性
+  int data; //每一个人的标号
   struct node* next;
 };
 int main()
 {
-  int m,n,j;//一共有m个人，报到n的出局
+  int m,n,j;                 //一共有m个人，报到n的出局
   node *h,*p,*t;
   cout <<"please input the total number of the queue:";
   cin >>m;
@@ -32,27 +32,27 @@ int main()
       t=p;
     }
   }
-  t->next=h;
+  t->next=h;   //完成循环链表
 
   node *p1,*p2;
   j=1;
   p1=h;
   p2=p1->next;
-  while(m!=1)
+  while(m!=1)//当只剩下一个人的时候退出循环
   {
-    if(j==n-1)
+    if(j==n-1)//执行删除节点的操作
     {
-      p1->next=p2->next;
-      p2=p2->next;
-      m--;
+      p1->next=p2->next;    
+      p2=p2->next;   
+      m--;      //队列总人数减一
       j=0;
     }
-    else
+    else   //指针走向下一个节点
     {
       p1=p2;
-      p2=p2->next;
+      p2=p2->next; 
       j++;
     }
   }
-  cout<<p2->data;
+  cout<<p2->data;//输出最后一个值
 }
